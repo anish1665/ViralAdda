@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@drawable/radio">
+
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/visualizerView"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_above="@+id/linearLayout" />
+
+        <ProgressBar
+            android:id="@+id/loadingIndicator"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:progress="100"
+            android:layout_below="@+id/linearLayout2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="80dp">
+        </ProgressBar>
+    
+    	<LinearLayout 
+       	 	android:layout_width="fill_parent"
+        	android:layout_height="wrap_content"
+        	android:orientation="vertical"
+            android:id="@+id/linearLayout2">
+        	
+    	    <com.google.android.gms.ads.AdView 
+          		android:id="@+id/adView"
+         		android:layout_width="fill_parent"
+          		android:layout_height="wrap_content"
+          		ads:adUnitId="@string/admob_banner_id"
+          		android:visibility="gone"
+          		ads:adSize="BANNER"/>
+        
+    	</LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:animateLayoutChanges="true"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/linearLayout">
+
+
+            <TextView
+                android:id="@+id/now_playing_title"
+                android:visibility="gone"
+                android:text="@string/now_playing"
+                android:textSize="28dp"
+                android:textColor="@color/white"
+                android:fontFamily="sans-serif-thin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/now_playing"
+                android:visibility="gone"
+                android:textColor="@color/white"
+                android:fontFamily="sans-serif-light"
+                android:paddingBottom="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_play"
+                android:enabled="false"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
+                android:background="@drawable/media_button_play">
+            </Button>
+
+            <Button
+                android:id="@+id/btn_pause"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/media_button_pause">
+            </Button>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</LinearLayout>

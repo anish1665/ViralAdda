@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content">
+
+<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        android:orientation="vertical"
+        android:elevation="2dp"
+        android:padding="8dp"
+        android:background="@drawable/card_background">
+        
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+        
+            <ImageView
+      	    android:id="@+id/listthumb"
+      	    android:layout_width="80dp"
+      	    android:layout_height="50dp"
+      	    android:layout_gravity="center_vertical"
+      	    android:contentDescription="Rss video thumbnail"
+      	    android:src="@drawable/ic_launcher" />
+			
+			<TextView
+            android:id="@+id/listtitle"
+            style="@style/listTitle"
+            android:maxLines="3"/>
+			
+		</LinearLayout>
+			
+			<TextView
+			android:id="@+id/shortdescription"
+			android:layout_width="wrap_content"
+			android:ellipsize="end"
+			android:maxLines="2" 
+			android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_height="wrap_content"/>
+			
+			<TextView
+			android:id="@+id/listpubdate"
+			android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="11dp"/>
+
+</LinearLayout>
+
+</FrameLayout>

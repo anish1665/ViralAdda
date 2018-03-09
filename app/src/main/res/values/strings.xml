@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Moviezz Adda</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="player_error">Error initializing YouTube player</string>
+    <string name="seek_to">Jump To</string>
+    <string name="seek_to_hint">Seconds</string>
+
+    <!--Contact Form-->
+
+    <string name="contact_form">Contact Us</string>
+    <string name="contact_form_name">Your Name</string>
+    <string name="contact_form_email">Your Email</string>
+    <string name="contact_form_subject">Subject</string>
+    <string name="contact_form_message">Message</string>
+    <string name="contact_form_button">Send Email</string>
+    <string name="contact_form_post_message">Please wait! We\'re sending your message to the support department...</string>
+    <string name="contact_posted">Your message has been successfully delivered.</string>
+
+    <!-- API keys -->
+    <string name="twitter_api_consumer_key"></string>
+    <string name="twitter_api_consumer_secret_key"></string>
+    <string name="google_server_key">AIzaSyAS16ZDBhIEpuj1gWd8ajlMKJRXlomYsg0</string>
+    <string name="google_android_key"></string>
+    <string name="instagram_access_token"></string>
+    <string name="pinterest_access_token"></string>
+    <string name="facebook_access_token"></string>
+    <string name="soundcloud_id"></string>
+
+    <!-- About text, you can use basic html, stay between [ and ] -->
+    <string name="about_text"><![CDATA[   
+    <b>Karthik M</b>
+    <br><br>Thank you for downloading My App<br><br>
+    <br><br>WhatsApp: 9494435308<br><br>
+    <i>By www.androidmkab.com</i>
+    ]]></string>s
+
+    <!-- Enter your Google Play billing details to enable In-App purchases -->
+    <string name="google_play_license"></string>
+    <string name="product_id"></string>
+
+    <!-- Enter a ADMOB ID if you would like to display ads-->
+    <string name="admob_banner_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="ad_unit_id">ca-app-pub-3940256099942544/2793859312</string>
+    <string name="admob_interstitial_id"></string>
+    <string name="interstitial">ca-app-pub-3940256099942544/1033173712</string>
+
+    <!-- Strings for optional translation below this line -->
+
+    <!-- twitter section -->
+
+    <string name="name">Name</string>
+    <string name="username">Username</string>
+    <string name="profile_image">Profile image</string>
+    <string name="message">Message</string>
+
+    <string name="tweet_share_header">\'s tweet</string>
+
+    <!-- rss -->
+    <string name="ok">Ok</string>
+    <string name="feed_title_value">Feed title</string>
+    <string name="feed_link_value">Feed description</string>
+    <string name="feed_description_value">Feed link</string>
+    <item name="frequency" type="integer">5</item>
+
+    <string name="btn_video">Play video</string>
+    <string name="btn_audio">Play audio</string>
+
+    <!-- youtube -->
+    <string name="video_search_hint">Search this Channel</string>
+    <string name="play_button">Play</string>
+
+    <string name="video_share_begin">"I just saw this video: "</string>
+    <string name="video_share_middle">" in the \""</string>
+    <string name="video_share_end">\" app</string>
+
+    <string name="video_subtitle_start">"Uploaded at "</string>
+    <string name="video_subtitle_end">" by "</string>
+
+    <!--  webview  -->
+    <string name="webview_title">Telugu TV Episodes</string>
+
+    <string name="web_share_begin">"Look what I saw in the \""</string>
+    <string name="web_share_end">"\"app: "</string>
+
+    <!-- favorites -->
+    <string name="item_del_text">You are about to delete all your favorites</string>
+    <string name="item_del_confirmation">I know</string>
+    <string name="no_favorites">Your can add (more) favorites by opening an item and selecting \"favorite\"</string>
+    <string name="favorite_success">The item has been added</string>
+    <string name="favorite_duplicate">This item has already been added</string>
+    <string name="favorite_menu_delete">Delete</string>
+
+    <!-- settings -->
+    <string name="settings_general_summary">Username and password information</string>
+    <string name="settings_general">General</string>
+
+    <string name="settings_showmenu_summary">Yes/No</string>
+    <string name="settings_showmenu">Show side menu on start</string>
+
+    <string name="settings_fontsize_summary">Preferred text size for articles and posts</string>
+    <string name="settings_fontsize">Text size</string>
+
+    <string name="settings_fontsize_xl">Extra Large</string>
+    <string name="settings_fontsize_l">Large</string>
+    <string name="settings_fontsize_m">Default</string>
+    <string name="settings_fontsize_s">Small</string>
+    <string name="settings_fontsize_xs">Extra Small</string>
+
+    <string name="settings_other_summary">Other information</string>
+    <string name="settings_other">Other</string>
+
+    <string name="settings_aboutus_summary">Information about our application</string>
+    <string name="settings_aboutus">About</string>
+
+    <string name="settings_rate_summary">Help other users enjoy this application</string>
+    <string name="settings_rate">Rate this app</string>
+
+    <string name="settings_billing_summary">Manage your In-App purchases</string>
+    <string name="settings_billing">In-App Products.</string>
+
+    <string name="settings_purchase_summary">Removes ads and unlocks more content</string>
+    <string name="settings_purchase">Unlock extra features</string>
+
+    <string name="settings_restore_purchase_success">Previous purchases have been restored.</string>
+    <string name="settings_purchase_success">Previous purchases have been restored.</string>
+    <string name="settings_purchase_fail">Purchase failed.</string>
+
+    <string name="dialog_purchase_title">Content locked.</string>
+    <string name="dialog_purchase">In order to view this content, you need to unlock the full version by making a one time purchase.\n\nThis will also remove advertisements throughout the app.</string>
+
+    <!-- Wordpress -->
+    <string name="wordpress_subtitle_start">"Published "</string>
+    <string name="wordpress_subtitle_end">" by "</string>
+
+    <!-- Maps -->
+    <string name="navigate">Navigate</string>
+    <string name="maps_location_title">Waiting for location...</string>
+    <string name="maps_location_subtitle">Make sure GPS is on</string>
+
+    <!-- media viewer and radio-->
+    <string name="volume_low">Turn your volume up!</string>
+    <string name="file_audio">Audio</string>
+    <string name="file_video">Video</string>
+    <string name="file_image">Image</string>
+    <string name="now_playing">Now playing</string>
+    <string name="notification_playing">Playing audio - Live Stream</string>
+    <string name="error_retry">Failed to connect to stream... We have restarted the mediadecoder, please try again.</string>
+    <string name="radio_playing_other">Already Playing another station. Press stop and select play again to play the station you have just selected.</string>
+    <string name="downloadmanager_disabled">Download manager needs to be enabled</string>
+
+    <!-- tumblr -->
+    <string name="image_descr">Image</string>
+    <string name="set">Set</string>
+    <string name="save">Save</string>
+    <string name="tumblr_share_begin">Check out this post I saw in</string>
+    <string name="saved">Saved at:</string>
+    <string name="set_confirm">Are you sure you would like to set this image as wallpaper?</string>
+    <string name="set_success">You have set a new Wallpaper!</string>
+
+    <!-- SoundCloud -->
+    <string name="duration">%1$d:%2$02d</string>
+    <string name="toast_track_added">Added to the playlist. Touch again to play now.</string>
+    <string name="playback_view_time">%1$02d:%2$02d</string>
+    <string name="playback_view_title">&lt;b>%1$s&lt;/b> - %2$s</string>
+
+    <!-- general-->
+    <string name="video">Live TV</string>
+    <string name="settings">Settings</string>
+    <string name="favorites">Favorites</string>
+    <string name="contact">Contact Form</string>
+    <string name="invalid_configuration">Configuration could not be loaded</string>
+    <string name="share_header">Share</string>
+    <string name="about_header">About</string>
+    <string name="favorite_button">Add this to Favorite</string>
+    <string name="open_button">Open</string>
+    <string name="textview_date">"Date: "</string>
+    <string name="loading">Loading..</string>
+    <string name="opening_video">Opening video</string>
+    <string name="opening_audio">Opening audio</string>
+    <string name="downloading">Downloading..</string>
+    <string name="empty_textview">Error loading data</string>
+    <string name="no_results">No results</string>
+    <string name="yes">Yes</string>
+    <string name="cancel">Cancel</string>
+    <string name="comments">Comments</string>
+    <string name="share">Share</string>
+    <string name="info">Info</string>
+    <string name="refresh">Refresh</string>
+    <string name="already_loading">We are already loading some new content!</string>
+    <string name="intent_failed">Failed to start external application.</string>
+
+    <string name="drawer_open">Menu opened</string>
+    <string name="drawer_close">Menu closed</string>
+
+    <string name="permissions_required">You need to accept all required permissions to access this content.</string>
+
+    <!-- Connection dialogs -->
+    <string name="dialog_connection_title">No connection</string>
+    <string name="dialog_connection_description">We can not reach our servers at the moment.\n\nYou can always check you favorites and other items using the menu!</string>
+    <string name="dialog_internet_title">No internet</string>
+    <string name="dialog_internet_description">You seem to have no internet connection, this app requires internet to get the latest content.\n\nYou can continue to see your favorite/offline items!</string>
+
+</resources>

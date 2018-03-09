@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+<RelativeLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="50dp"
+    android:orientation="horizontal"
+    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+    android:layout_marginRight="@dimen/activity_horizontal_margin"
+    android:layout_marginTop="2dp"
+    android:layout_marginBottom="2dp"
+    android:elevation="2dp"
+    android:padding="8dp"
+    android:background="@drawable/card_background" >
+
+    <ImageView
+        android:id="@+id/userVideoThumbImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:adjustViewBounds="true"
+        android:maxWidth="150dip"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"/>
+
+    <TextView
+        android:id="@+id/userVideoTitleTextView"
+        android:layout_alignParentRight="true"
+        android:textDirection="locale"
+        android:layout_toRightOf="@id/userVideoThumbImageView"
+        style="@style/listTitle" />
+
+    <TextView
+        android:id="@+id/userVideoDateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/userVideoTitleTextView"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@id/userVideoThumbImageView"
+        android:paddingLeft="5dp"
+        android:paddingTop="1dp"
+        android:textDirection="locale"
+        android:textColor="@color/black"
+        android:text="@string/empty_textview"
+        android:textSize="11sp" />
+
+</RelativeLayout>
+</FrameLayout>

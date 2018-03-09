@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "12345688",
+    "firebase_url": "https://xxxxxapp-1315.firebaseio.com",
+    "project_id": "xxxxxxx-1315",
+    "storage_bucket": "androidmkabapp-1315.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:616xxx258:android:6f66e0e6431da7dc",
+        "android_client_info": {
+          "package_name": "com.androidmkab.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "xxx6xx8-xxxxxxxhlc4t6exx.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "xxxxx"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:6xxxxxx",
+        "android_client_info": {
+          "package_name": "com.viral.adda"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "xxxxx0199.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "xxxxxxxxxxxx"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
