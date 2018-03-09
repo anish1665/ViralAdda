@@ -4,27 +4,8 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.res.Resources;
 import android.os.AsyncTask;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 
-import com.google.gson.Gson;
-import com.ronak.viral.adda.drawer.NavItem;
-import com.ronak.viral.adda.drawer.SimpleSubMenu;
-import com.ronak.viral.adda.providers.CustomIntent;
-import com.ronak.viral.adda.providers.facebook.FacebookFragment;
-import com.ronak.viral.adda.providers.instagram.InstagramFragment;
-import com.ronak.viral.adda.providers.maps.MapsFragment;
-import com.ronak.viral.adda.providers.overview.ui.OverviewFragment;
-import com.ronak.viral.adda.providers.pinterest.PinterestFragment;
-import com.ronak.viral.adda.providers.radio.ui.MediaFragment;
-import com.ronak.viral.adda.providers.rss.ui.RssFragment;
-import com.ronak.viral.adda.providers.soundcloud.ui.SoundCloudFragment;
-import com.ronak.viral.adda.providers.tumblr.ui.TumblrFragment;
-import com.ronak.viral.adda.providers.tv.TvFragment;
-import com.ronak.viral.adda.providers.twi.ui.TweetsFragment;
-import com.ronak.viral.adda.providers.web.WebviewFragment;
-import com.ronak.viral.adda.providers.wordpress.ui.WordpressFragment;
-import com.ronak.viral.adda.providers.yt.ui.YoutubeFragment;
 import com.ronak.viral.adda.util.Helper;
 import com.ronak.viral.adda.viralModels.Tab;
 import com.ronak.viral.adda.viralModels.ViralObject;
@@ -171,62 +152,7 @@ public class ConfigParserTwo extends AsyncTask<Void, Void, Void> {
         return null;
     }
 
-    public static NavItem navItemFromJSON(JSONObject jsonTab) throws JSONException {
-        String tabTitle = jsonTab.getString("title");
-        String tabProvider = jsonTab.getString("provider");
 
-        //Parse the type
-        Class<? extends Fragment> tabClass = null;
-        if (tabProvider.equals("wordpress"))
-            tabClass = WordpressFragment.class;
-        else if (tabProvider.equals("facebook"))
-            tabClass = FacebookFragment.class;
-        else if (tabProvider.equals("rss"))
-            tabClass = RssFragment.class;
-        else if (tabProvider.equals("youtube"))
-            tabClass = YoutubeFragment.class;
-        else if (tabProvider.equals("instagram"))
-            tabClass = InstagramFragment.class;
-        else if (tabProvider.equals("webview"))
-            tabClass = WebviewFragment.class;
-        else if (tabProvider.equals("tumblr"))
-            tabClass = TumblrFragment.class;
-        else if (tabProvider.equals("stream"))
-            tabClass = TvFragment.class;
-        else if (tabProvider.equals("soundcloud"))
-            tabClass = SoundCloudFragment.class;
-        else if (tabProvider.equals("maps"))
-            tabClass = MapsFragment.class;
-        else if (tabProvider.equals("twitter"))
-            tabClass = TweetsFragment.class;
-        else if (tabProvider.equals("radio"))
-            tabClass = MediaFragment.class;
-        else if (tabProvider.equals("pinterest"))
-            tabClass = PinterestFragment.class;
-        else if (tabProvider.equals("custom"))
-            tabClass = CustomIntent.class;
-        else if (tabProvider.equals("overview"))
-            tabClass = OverviewFragment.class;
-        else
-            throw new RuntimeException("Invalid type specified for tab");
-
-        JSONArray args = jsonTab.getJSONArray("arguments");
-        List<String> list = new ArrayList<String>();
-        for (int i = 0; i < args.length(); i++) {
-            list.add(args.getString(i));
-        }
-
-        NavItem item = new NavItem(tabTitle, tabClass, list.toArray(new String[0])); //todo: 1
-
-        //Add the image if present
-        if (jsonTab.has("image")
-                && jsonTab.getString("image") != null
-                && !jsonTab.getString("image").isEmpty()) {
-            item.setCategoryImageUrl(jsonTab.getString("image"));
-        }
-
-        return item;
-    }
 
     @Override
     protected void onPostExecute(Void args) {

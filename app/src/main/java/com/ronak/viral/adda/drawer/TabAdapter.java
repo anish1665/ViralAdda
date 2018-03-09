@@ -77,7 +77,7 @@ public class TabAdapter extends FragmentStatePagerAdapter {
             Fragment fragment = action.getFragment().newInstance();
 
             Bundle args = new Bundle();
-            args.putStringArray(MainActivity.FRAGMENT_DATA, action.getData());
+            args.putStringArray(MainActivity.FRAGMENT_DATA, action.getData()); //Todo: here you have to pass the url
 
             fragment.setArguments(args);
 

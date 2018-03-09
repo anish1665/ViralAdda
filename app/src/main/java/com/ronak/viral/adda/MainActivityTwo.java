@@ -11,6 +11,7 @@ import android.util.Log;
 import com.google.gson.Gson;
 import com.ronak.viral.adda.drawer.NavItem;
 import com.ronak.viral.adda.drawer.TabAdapter;
+import com.ronak.viral.adda.fragments.WebViewFragmentTwo;
 import com.ronak.viral.adda.helper.ConfigParserTwo;
 import com.ronak.viral.adda.providers.yt.ui.YoutubeFragment;
 import com.ronak.viral.adda.viralModels.Tab;
@@ -38,15 +39,20 @@ public class MainActivityTwo extends AppCompatActivity {
         new ConfigParserTwo(Config.CONFIG_URL, MainActivityTwo.this, new ConfigParserTwo.CallBack() {
             @Override
             public void configLoaded(boolean facedException, List<ViralObject> viralObjectList) {
-                Log.e("isConfigLoaded", "" + facedException);
-                String res = new Gson().toJson(viralObjectList);
-                Log.e("ViralObjList", res);
-
+                JstForTestingPurpose(facedException, viralObjectList);
                 actions = new ArrayList<>();
                 for (int i = 0; i < viralObjectList.size(); i++) {
                     List<Tab> tabsItem = viralObjectList.get(i).getTabs();
                     for (int j = 0; j < tabsItem.size(); j++) {
-                        actions.add(new NavItem(viralObjectList.get(i).getTitle(), YoutubeFragment.class, tabsItem.get(j).getArguments().toArray(new String[0])));
+                        if (tabsItem.get(j).getTitle().equalsIgnoreCase("Youtube")) {
+                            actions.add(new NavItem(viralObjectList.get(i).getTitle(), YoutubeFragment.class, tabsItem.get(j).getArguments().toArray(new String[0])));
+                        } else {
+                            Bundle bundle = new Bundle();
+                            bundle.putString("url", "http://www.mi.com/in/");
+                            WebViewFragmentTwo fragobj = new WebViewFragmentTwo();
+                            fragobj.setArguments(bundle);
+                            actions.add(new NavItem(viralObjectList.get(i).getTitle(), fragobj.getClass(), null));
+                        }
                     }
                 }
                 initFragments();
@@ -55,6 +61,20 @@ public class MainActivityTwo extends AppCompatActivity {
         init();
 
 
+    }
+
+    private void JstForTestingPurpose(boolean facedException, List<ViralObject> viralObjectList) {
+        Log.e("isConfigLoaded", "" + facedException);
+        String res = new Gson().toJson(viralObjectList);
+        Log.e("ViralObjList", res);
+
+        List<Tab> tabList = new ArrayList<>();
+        Tab tab = new Tab("facebook", "http://www.mi.com/in/", null);
+        tabList.add(tab);
+
+        ViralObject viralObject = new ViralObject("facebook", null, null, false, tabList);
+        viralObject.setTitle("facebook");
+        viralObjectList.add(viralObject);
     }
 
     private void initFragments() {

@@ -9,6 +9,9 @@ public class ViralObject {
     public boolean iap;
     public List<Tab> tabs;
 
+    public ViralObject() {
+    }
+
     public ViralObject(String title, String drawable, String submenu, boolean iap, List<Tab> tabs) {
         this.title = title;
         this.drawable = drawable;
