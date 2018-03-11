@@ -268,7 +268,7 @@ public class MainActivity extends AppCompatActivity implements MenuItemCallback,
      * Show an interstitial ad
      * @param fromPager if the showing is triggered from a swipe in the viewpager
      */
-    private void showInterstitial(boolean fromPager){
+    private void showInterstitial(boolean fromPager) {
         //if (fromPager) return;
         if (getResources().getString(R.string.admob_interstitial_id).length() == 0) return;
 

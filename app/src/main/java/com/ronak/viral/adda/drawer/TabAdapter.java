@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import android.view.ViewGroup;
 
 import com.ronak.viral.adda.MainActivity;
+import com.ronak.viral.adda.MainActivityTwo;
 import com.ronak.viral.adda.drawer.NavItem;
 import com.ronak.viral.adda.util.Log;
 
@@ -77,7 +78,7 @@ public class TabAdapter extends FragmentStatePagerAdapter {
             Fragment fragment = action.getFragment().newInstance();
 
             Bundle args = new Bundle();
-            args.putStringArray(MainActivity.FRAGMENT_DATA, action.getData()); //Todo: here you have to pass the url
+            args.putStringArray(MainActivityTwo.FRAGMENT_DATA, action.getData()); //Todo: here you have to pass the url
 
             fragment.setArguments(args);
 

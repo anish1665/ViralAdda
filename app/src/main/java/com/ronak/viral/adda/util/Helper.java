@@ -36,19 +36,19 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class Helper {
-	
+
 	private static boolean DISPLAY_DEBUG = true;
-	
+
 	public static void noConnection(final Activity context, String message) {
-    	
+
         AlertDialog.Builder ab = new AlertDialog.Builder(context);
-    	   
+
     	if (isOnline(context)){
     		String messageText = "";
         	if (message != null && DISPLAY_DEBUG){
         		messageText = "\n\n" + message;
         	}
-        	
+
     		ab.setMessage(context.getResources().getString(R.string.dialog_connection_description) + messageText);
     	   	ab.setPositiveButton(context.getResources().getString(R.string.ok), null);
     	   	ab.setTitle(context.getResources().getString(R.string.dialog_connection_title));
@@ -62,7 +62,7 @@ public class Helper {
 		{
 			ab.show();
 		}
-     }	
+     }
 
     public static void noConnection(final Activity context) {
         //noConnection(context, null);
@@ -80,27 +80,27 @@ public class Helper {
     }
 
     public static boolean isOnlineShowDialog(Activity c) {
-    	 
+
     	if (isOnline(c))
     	    return true;
     	else
             noConnection(c);
         return false;
     }
-    
+
     public static void admobLoader(Context c, Resources resources, View AdmobView){
     	String adId = resources.getString(R.string.admob_banner_id);
 		if (!adId.equals("") && !SettingsFragment.getIsPurchased(c)) {
 			AdView adView = (AdView) AdmobView;
 			adView.setVisibility(View.VISIBLE);
-			
+
 			// Look up the AdView as a resource and load a request.
 			Builder adRequestBuilder = new AdRequest.Builder();
 			adRequestBuilder.addTestDevice(AdRequest.DEVICE_ID_EMULATOR);
 			adView.loadAd(adRequestBuilder.build());
 		}
     }
-    
+
     @SuppressLint("NewApi")
 	public static void revealView(View toBeRevealed, View frame){
 		//Make sure that the view is still attached (e.g. we haven't switched to another screen in the meantime)
@@ -125,12 +125,12 @@ public class Helper {
 			}
 		}
 	}
-    
+
 	@SuppressLint("NewApi")
 	public static void setStatusBarColor(Activity mActivity, int color){
 		try {
 			if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-				mActivity.getWindow().setStatusBarColor(color); 
+				mActivity.getWindow().setStatusBarColor(color);
 			}
 		} catch (Exception e){
 			Log.printStackTrace(e);
@@ -153,11 +153,11 @@ public class Helper {
 		return json;
 	}
 
-	
+
 	//Makes high numbers readable (e.g. 5000 -> 5K)
 	public static String formatValue(double value) {
 		if (value > 0){
-			int power; 
+			int power;
 		    String suffix = " kmbt";
 		    String formattedNumber = "";
 
@@ -166,7 +166,7 @@ public class Helper {
 		    value = value/(Math.pow(10,(power/3)*3));
 		    formattedNumber=formatter.format(value);
 		    formattedNumber = formattedNumber + suffix.charAt(power/3);
-		    return formattedNumber.length()>4 ?  formattedNumber.replaceAll("\\.[0-9]+", "") : formattedNumber;  
+		    return formattedNumber.length()>4 ?  formattedNumber.replaceAll("\\.[0-9]+", "") : formattedNumber;
 		} else {
 			return "0";
 		}
