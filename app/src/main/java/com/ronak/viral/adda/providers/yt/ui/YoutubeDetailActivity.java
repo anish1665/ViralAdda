@@ -275,6 +275,7 @@ public class YoutubeDetailActivity extends DetailActivity {
                     String downloadUrl = ytFiles.get(itag).getUrl();
                     android.util.Log.e("downloadUrl", downloadUrl);
 
+
                     //todo: @anish remaining from here
 
                 }
