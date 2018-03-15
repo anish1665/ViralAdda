@@ -384,4 +384,6 @@ public class WordpressDetailActivity extends DetailActivity implements JsonApiPo
             }
         });
     }
+
+
 }

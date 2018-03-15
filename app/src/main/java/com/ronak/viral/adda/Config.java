@@ -102,7 +102,7 @@ public class Config {
         sub.add("Permissions", R.drawable.ic_details, permissionTabs);
 
         List<NavItem> customTab = new ArrayList<>();
-        customTab.add(new NavItem("Open App", CustomIntent.class,
+        customTab.add(new NavItem("Open AppApplication", CustomIntent.class,
                 new String[]{ "com.spotify.music", CustomIntent.OPEN_APP}));
         sub.add("Custom", R.drawable.ic_details, customTab);**/
 

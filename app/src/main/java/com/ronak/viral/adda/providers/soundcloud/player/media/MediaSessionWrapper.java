@@ -98,7 +98,7 @@ public class MediaSessionWrapper {
     private AudioManager mAudioManager;
 
     /**
-     * App package name at runtime used for the Component name.
+     * AppApplication package name at runtime used for the Component name.
      */
     private String mRuntimePackageName;
 

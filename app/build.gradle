@@ -2,11 +2,12 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 27
-    buildToolsVersion '25.0.3'
+    buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "com.ronak.viral.adda"
         minSdkVersion 16
         targetSdkVersion 27
+        multiDexEnabled true
         compileOptions {
             sourceCompatibility JavaVersion.VERSION_1_7
             targetCompatibility JavaVersion.VERSION_1_7
@@ -42,20 +43,23 @@ dependencies {
     compile 'com.crittercism:crittercism-android-agent:5.6.4'
     compile 'com.onesignal:OneSignal:3.4.2@aar'
     compile 'com.squareup.picasso:picasso:2.5.2'
-
     compile 'com.android.support:recyclerview-v7:27.1.0'
     compile 'com.android.support:design:27.1.0'
     compile 'com.android.support:support-v4:27.1.0'
     compile 'com.android.support:cardview-v7:27.1.0'
-    compile 'com.google.android.gms:play-services-gcm:9.8.0'
-    compile 'com.google.android.gms:play-services-ads:9.8.0'
-    compile 'com.google.android.gms:play-services-maps:9.8.0'
+    //noinspection GradleCompatible,GradleCompatible
+    compile 'com.google.android.gms:play-services-gcm:11.8.0'
+    compile 'com.google.android.gms:play-services-ads:11.8.0'
+    compile 'com.google.android.gms:play-services-maps:11.8.0'
     compile files('libs/YouTubeAndroidPlayerApi.jar')
-    compile 'com.google.firebase:firebase-ads:10.2.0'
+    compile 'com.google.firebase:firebase-ads:11.8.0'
     compile 'com.android.support:appcompat-v7:27.1.0'
     implementation 'com.android.support:appcompat-v7:27.1.0'
     compile 'com.android.support:design:27.1.0'
     compile 'com.google.code.gson:gson:2.8.2'
-
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.squareup.retrofit2:retrofit:2.3.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+    implementation project(':youtubeExtractor')//don't forget to keep  maven { url "https://jitpack.io" } in project level gradle
 }

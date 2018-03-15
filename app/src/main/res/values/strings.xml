@@ -38,7 +38,7 @@
     <i>By www.androidmkab.com</i>
     ]]></string>s
 
-    <!-- Enter your Google Play billing details to enable In-App purchases -->
+    <!-- Enter your Google Play billing details to enableAppApplication-App purchases -->
     <string name="google_play_license"></string>
     <string name="product_id"></string>
 

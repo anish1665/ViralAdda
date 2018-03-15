@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
+import com.ronak.viral.adda.MainActivityTwo;
 import com.ronak.viral.adda.helper.FunctionHelper;
 import com.ronak.viral.adda.util.Log;
 
@@ -229,7 +230,7 @@ public class YoutubeFragment extends Fragment {
     }
 
     private String[] getPassedData() {
-        return getArguments().getStringArray(MainActivity.FRAGMENT_DATA);
+        return getArguments().getStringArray(MainActivityTwo.FRAGMENT_DATA);
     }
 
     public void prepareAd() {

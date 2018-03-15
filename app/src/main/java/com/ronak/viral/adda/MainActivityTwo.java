@@ -50,7 +50,7 @@ public class MainActivityTwo extends AppCompatActivity {
         this.toolbar = (Toolbar) findViewById(R.id.toolbar);
         context = this;
 
-        FunctionHelper.initToolbar(this, toolbar, "ViralAdda", "");
+        FunctionHelper.initToolbar(this, toolbar, "Movies Adda", "");
 
         checkInternetConnection();
         initListener();

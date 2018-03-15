@@ -214,7 +214,7 @@ public class MediaActivity extends AppCompatActivity {
             Toast.makeText(this, R.string.downloadmanager_disabled, Toast.LENGTH_LONG).show();
 
             try {
-                //Open the specific App Info page:
+                //Open the specific AppApplication Info page:
                 Intent intent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
                 intent.setData(Uri.parse("package:" + packageName));
                 startActivity(intent);
