@@ -6,4 +6,5 @@ package com.ronak.viral.adda.helper;
 
 public class AppConstants {
     public static final String YOUTUBE_DOWNLOAD_BASEURL="http://youtube.com/";
+    public static final String WATCH="watch";
 }

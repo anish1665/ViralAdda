@@ -1,7 +1,9 @@
 package com.ronak.viral.adda.providers.yt.ui;
 
+import com.ronak.viral.adda.AppApplication;
 import com.ronak.viral.adda.Config;
 import com.ronak.viral.adda.R;
+import com.ronak.viral.adda.api.YouTubeService;
 import com.ronak.viral.adda.comments.CommentsActivity;
 import com.ronak.viral.adda.providers.fav.FavDbAdapter;
 import com.ronak.viral.adda.util.DetailActivity;
@@ -19,10 +21,12 @@ import com.google.android.gms.ads.VideoOptions;
 import com.squareup.picasso.Picasso;
 
 import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.v7.widget.Toolbar;
 import android.util.SparseArray;
 import android.util.TypedValue;
@@ -38,9 +42,19 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+
 import at.huber.youtubeExtractor.VideoMeta;
 import at.huber.youtubeExtractor.YouTubeExtractor;
 import at.huber.youtubeExtractor.YtFile;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * This activity is used to display the details of a video
@@ -52,12 +66,15 @@ public class YoutubeDetailActivity extends DetailActivity {
     private TextView mPresentation;
     private Video video;
     private static String LOG_TAG = "EXAMPLE";
+    private YouTubeService youTubeService = AppApplication.getRetrofit().create(YouTubeService.class);
 
     NativeExpressAdView mAdView;
     VideoController mVideoController;
+    private ProgressDialog progressDialog;
 
     public static final String EXTRA_VIDEO = "videoitem";
     private String vId;
+    private File file;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -67,6 +84,13 @@ public class YoutubeDetailActivity extends DetailActivity {
         ViewStub stub = (ViewStub) findViewById(R.id.layout_stub);
         stub.setLayoutResource(R.layout.activity_youtube_detail);
         View inflated = stub.inflate();
+
+        progressDialog = new ProgressDialog(this); // anish
+        if (android.os.Build.VERSION.SDK_INT > 9) {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
+
 
         mToolbar = (Toolbar) findViewById(R.id.toolbar_actionbar);
         setSupportActionBar(mToolbar);
@@ -271,15 +295,87 @@ public class YoutubeDetailActivity extends DetailActivity {
             @Override
             public void onExtractionComplete(SparseArray<YtFile> ytFiles, VideoMeta vMeta) {
                 if (ytFiles != null) {
-                    int itag = 22;
+                    int itag = 18;
                     String downloadUrl = ytFiles.get(itag).getUrl();
                     android.util.Log.e("downloadUrl", downloadUrl);
 
+                    downloadFile(downloadUrl);
 
-                    //todo: @anish remaining from here
 
                 }
             }
         }.extract(youtubeLink, true, true);
+    }
+
+    private void downloadFile(String downloadUrl) {
+        progressDialog.show();
+        youTubeService.downloadFileWithDynamicUrlAsync(downloadUrl).enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                boolean isFileSaved = writeResponseBodyToTheDisk(response.body(), "vAdda_" + video.getTitle()+".mp4");
+                progressDialog.dismiss();
+                if (isFileSaved) {
+                    Toast.makeText(YoutubeDetailActivity.this, "Path:" + file.getAbsolutePath() , Toast.LENGTH_SHORT).show();
+                    Log.e("downloadPath", file.getAbsolutePath() + "");
+                } else {
+                    Toast.makeText(YoutubeDetailActivity.this, "Failed Download", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+
+            }
+        });
+    }
+
+    private boolean writeResponseBodyToTheDisk(ResponseBody body, String s) {
+        try {
+            // todo change the file location/name according to your needs
+            file = new File(getExternalFilesDir(null) + File.separator + s);
+
+            InputStream inputStream = null;
+            OutputStream outputStream = null;
+
+            try {
+                byte[] fileReader = new byte[4096];
+
+                long fileSize = body.contentLength();
+                long fileSizeDownloaded = 0;
+
+                inputStream = body.byteStream();
+                outputStream = new FileOutputStream(file);
+
+                while (true) {
+                    int read = inputStream.read(fileReader);
+
+                    if (read == -1) {
+                        break;
+                    }
+
+                    outputStream.write(fileReader, 0, read);
+
+                    fileSizeDownloaded += read;
+
+                    Log.d("tag01", "file download: " + fileSizeDownloaded + " of " + fileSize);
+                }
+
+                outputStream.flush();
+
+                return true;
+            } catch (IOException e) {
+                return false;
+            } finally {
+                if (inputStream != null) {
+                    inputStream.close();
+                }
+
+                if (outputStream != null) {
+                    outputStream.close();
+                }
+            }
+        } catch (IOException e) {
+            return false;
+        }
     }
 }
